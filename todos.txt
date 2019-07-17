@@ -1,0 +1,8 @@
+1 - Show conversation between client and server
+2 - Implement commands functionality
+2.2 First on Rate
+2.3 Complete
+2.4 Date
+2.5 Map
+4 - Create Theme for the app
+3 - Create docker file

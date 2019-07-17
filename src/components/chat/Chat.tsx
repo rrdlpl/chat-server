@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { useMappedState, useDispatch } from 'redux-react-hook';
-import { Button } from '@material-ui/core'
-import { initSocket, sendCommand } from '../../store/actions';
-
+import { initSocket } from '../../store/actions';
+import { ChatEnterText } from './ChatEnterText';
+import { ChatConversation } from './ChatConversation';
 export interface IChatProps {
 
 }
-
-export const Chat: React.FC<IChatProps> = (props: IChatProps) => {
+export const Chat: React.FC<IChatProps> = () => {
 
     const dispatch = useDispatch()
 
@@ -20,15 +19,9 @@ export const Chat: React.FC<IChatProps> = (props: IChatProps) => {
 
     React.useEffect(() => {
         enterChat()
-
     }, [])
 
-    const dispatchCommand: any =
-        React.useCallback(
-            (socket: SocketIOClient.Socket) =>
-                dispatch(sendCommand(socket)),
-            [],
-        )
+
 
     const mapState = React.useCallback(
         (rootState) => ({
@@ -40,20 +33,19 @@ export const Chat: React.FC<IChatProps> = (props: IChatProps) => {
         []
     )
 
-    const onCommandClick = () => {
-        if (socket) {
-            dispatchCommand(socket)
-        }
-    }
 
-    const { messages, commands, connected, socket } = useMappedState(mapState)
+
+    const { messages, commands, connected } = useMappedState(mapState)
     console.log(' mesages', messages)
     console.log('commands', commands)
     console.log('Connected', connected)
+
     return (
         <div>
             Is chat connected? {connected ? "true" : "false"}
-            <Button onClick={() => onCommandClick()}>Command</Button>
+
+            <ChatConversation />
+            <ChatEnterText />
         </div>
     )
 }
