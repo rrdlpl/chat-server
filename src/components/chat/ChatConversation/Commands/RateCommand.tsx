@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { DialogTitle, DialogContent, Button, Dialog } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/StarBorderOutlined';
+import { useDispatch, useMappedState } from 'redux-react-hook';
+import { sendMessage } from '../../../../store/chat/actions';
+import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 
 
 interface IRateProps {
@@ -25,17 +28,35 @@ export const RateCommand = (props: IRateProps) => {
             </Button>
         )
     }
+    const dispatch = useDispatch()
+
+    const dispatchMessage: any =
+        React.useCallback(
+            (socket: SocketIOClient.Socket, message: IMessagePayload) =>
+                dispatch(sendMessage(socket, message)),
+            [dispatch],
+        )
 
     const giveRating = (r: number) => {
         setRating(r)
         onClose()
-        console.log('You rated the app with', r)
+        dispatchMessage(socket, { author: 'toset', message: 'I rate this app with ' + r + ' star(s)' })
     }
+
+
+    const mapState = React.useCallback(
+        (rootState) => ({
+            socket: rootState.chat.socket
+        }),
+        []
+    )
+
+    const { socket } = useMappedState(mapState)
 
     return (
         <>
             <div>
-                Rate from {min} to {max}
+                Please Rate from {min} to {max}
             </div>
             <Dialog
                 open={open}
@@ -45,7 +66,6 @@ export const RateCommand = (props: IRateProps) => {
                 <DialogTitle id='form-dialog-title'>Please rate your experience from {min} to {max}
                 </DialogTitle>
                 <DialogContent>
-
                     {
                         stars
                     }
