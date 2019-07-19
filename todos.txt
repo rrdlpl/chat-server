@@ -6,3 +6,6 @@
 2.5 Map
 
 3 - Create docker file
+- Add login
+- Set author 
+- Show names in the conversation authors
