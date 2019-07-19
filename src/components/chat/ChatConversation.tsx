@@ -1,8 +1,9 @@
 import * as React from 'react'
+import { Grid } from '@material-ui/core';
 export const ChatConversation = () => {
     return (
-        <div>
+        <Grid container={true} >
             chat conversation goes here
-        </div>
+        </Grid>
     )
 }

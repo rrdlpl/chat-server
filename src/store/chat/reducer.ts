@@ -1,8 +1,9 @@
+import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED } from './constants';
 import { IMessageResponse } from '../../entities/responses/MessageResponse';
 
 import { ICommandResponse } from '../../entities/responses/CommandResponse';
 import { IChatAction } from './actions';
-import { Socket } from 'dgram';
+
 
 const initialState: IChatReducer = {
     messages: [],
@@ -22,14 +23,14 @@ interface IChatReducer {
 
 export const chatReducer = (state: IChatReducer = initialState, action: IChatAction | any) => {
     switch (action.type) {
-        case 'connected': {
+        case CONNECTED: {
             return {
                 ...state,
                 connected: true,
                 socket: action.socket
             }
         }
-        case 'command': {
+        case COMMAND_RECEIVED: {
             const command = action.payload as ICommandResponse
             return {
                 ...state,
@@ -37,7 +38,7 @@ export const chatReducer = (state: IChatReducer = initialState, action: IChatAct
                 lastCommand: command
             }
         }
-        case 'message': {
+        case MESSAGE_RECEIVED: {
             const message = action.payload as IMessageResponse
             return {
                 ...state,

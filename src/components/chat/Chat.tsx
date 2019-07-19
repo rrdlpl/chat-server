@@ -14,12 +14,12 @@ export const Chat: React.FC<IChatProps> = () => {
         React.useCallback(
             () =>
                 dispatch(initSocket()),
-            [],
+            [dispatch],
         )
 
     React.useEffect(() => {
         enterChat()
-    }, [])
+    }, [enterChat])
 
 
 

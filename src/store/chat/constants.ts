@@ -1,0 +1,5 @@
+export const CONNECTED = 'connected'
+export const COMMAND_RECEIVED = 'command_received'
+export const MESSAGE_RECEIVED = 'message_received'
+export const MESSAGE_SENT = 'message_sent'
+export const COMMAND_SENT = 'command_sent'
