@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { IMessagePayload } from '../../entities/request/MessagePayload';
 import { IMessageResponse } from '../../entities/responses/MessageResponse';
 import { ICommandResponse } from '../../entities/responses/CommandResponse';
-import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT } from './constants';
+import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT, DISCONNECTED } from './constants';
 
 
 
@@ -29,6 +29,11 @@ export const initSocket = () => {
             socket.on('command', (payload: any) => {
                 dispatch({ type: COMMAND_RECEIVED, payload })
             })
+
+            socket.on('disconnect', (payload: any) => {
+                console.log('Socket disconnected')
+                dispatch({ type: DISCONNECTED })
+            })
         })
     }
 };
@@ -38,6 +43,8 @@ export const sendMessage = (socket: any, payload: IMessagePayload) => {
         if (socket) {
             socket.emit('message', payload);
             dispatch({ type: MESSAGE_SENT, payload: payload })
+        } else {
+            dispatch(sendDisconnectedMessage())
         }
     }
 }
@@ -47,7 +54,21 @@ export const sendCommand = (socket: SocketIOClient.Socket) => {
         if (socket) {
             socket.emit('command', {})
             dispatch({ type: COMMAND_SENT })
+        } else {
+            dispatch(sendDisconnectedMessage())
         }
     }
+}
 
+export const complete = (socket: SocketIOClient.Socket) => {
+    return (dispatch: Dispatch) => {
+        if (socket) {
+            socket.disconnect()
+            dispatch(sendDisconnectedMessage())
+        }
+    }
+}
+
+const sendDisconnectedMessage = () => {
+    return { type: MESSAGE_RECEIVED, payload: { message: 'Chat disconnected. Please refresh the browser to connect again.' } }
 }

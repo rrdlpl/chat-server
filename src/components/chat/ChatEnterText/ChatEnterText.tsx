@@ -37,16 +37,16 @@ export const ChatEnterText = () => {
       [dispatch],
     )
   const onSendMessageClick = () => {
-    if (socket && text && text !== '') {
+    if (text && text !== '') {
       dispatchMessage(socket, { author: 'toset', message: text })
       setText('')
     }
   }
 
   const onCommandClick = () => {
-    if (socket) {
-      dispatchCommand(socket)
-    }
+
+    dispatchCommand(socket)
+
   }
 
   const mapState = React.useCallback(

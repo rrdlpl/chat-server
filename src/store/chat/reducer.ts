@@ -1,4 +1,4 @@
-import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT } from './constants';
+import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT, DISCONNECTED } from './constants';
 import { IMessageResponse } from '../../entities/responses/MessageResponse';
 
 import { ICommandResponse } from '../../entities/responses/CommandResponse';
@@ -61,6 +61,14 @@ export const chatReducer = (state: IChatReducer = initialState, action: IChatAct
             return {
                 ...state,
                 conversation: [...state.conversation, { type: 'sent', payload: COMMAND_SENT }]
+            }
+        }
+        case DISCONNECTED: {
+            return {
+                ...state,
+                socket: undefined,
+                connected: false,
+
             }
         }
         default: {

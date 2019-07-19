@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useMappedState, useDispatch } from 'redux-react-hook';
 import { DialogTitle, Dialog, Button, DialogActions } from '@material-ui/core';
-import { sendMessage } from '../../../../store/chat/actions';
+import { sendMessage, complete } from '../../../../store/chat/actions';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 interface ICompleteProps {
     options: string[];
@@ -32,9 +32,18 @@ export const CompleteCommand = (props: ICompleteProps) => {
             [dispatch],
         )
 
+
+    const dispatchComplete: any =
+        React.useCallback(
+            (socket: SocketIOClient.Socket) =>
+                dispatch(complete(socket)),
+            [dispatch],
+        )
+
     const onComplete = () => {
         onClose()
         dispatchMessage(socket, { author: 'toset', message: yes })
+        dispatchComplete(socket)
     }
 
     const onContinue = () => {
@@ -63,5 +72,6 @@ export const CompleteCommand = (props: ICompleteProps) => {
                 </DialogActions>
 
             </Dialog>
-        </div >);
+        </div>
+    );
 };
