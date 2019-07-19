@@ -25,7 +25,7 @@ export const SentMessage = (props: any) => {
         <Grid item={true} xs={12} className={classes.send}>
             <Grid>
                 <Typography>
-                    {payload === 'command_sent' && <div className={classes.command}>You sent a command  <CommandIcon /> </div>}
+                    {payload === 'command_sent' && <span className={classes.command}>You sent a command  <CommandIcon /> </span>}
                     {payload.message}
                 </Typography>
             </Grid>

@@ -76,9 +76,11 @@ export const ChatEnterText = () => {
 
         <div className={classes.grow} />
         <Tooltip title={"After clicking here a message will be sent"}>
-          <Button onClick={() => onSendMessageClick()} disabled={(!text || text === '')}>
-            <SendIcon />
-          </Button>
+          <div>
+            <Button onClick={() => onSendMessageClick()} disabled={(!text || text === '')}>
+              <SendIcon />
+            </Button>
+          </div>
         </Tooltip>
         <Tooltip title={"After clicking here a command will be sent"}>
           <Button onClick={() => onCommandClick()}>
