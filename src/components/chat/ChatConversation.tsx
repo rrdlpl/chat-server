@@ -13,7 +13,7 @@ export const ChatConversation = () => {
     const { conversation } = useMappedState(mapState)
 
     return (
-        <Grid container={true} style={{ padding: '2em' }}>
+        <Grid container={true} style={{ padding: '1em' }}>
             {conversation.map((c: any, index: number) =>
                 <Grid key={index} item={true} xs={12} >
                     {c.type === 'received' && <ReceivedMessage {...c} />}
@@ -28,12 +28,13 @@ export const ChatConversation = () => {
 const useSendStyles = makeStyles((theme: Theme) => ({
     send: {
         float: 'right',
-        marginBottom: 0,
+        marginBottom: '1em',
         borderRadius: '7.5px',
         boxShadow: '0 1px 0.5px rgba(0,0,0,.13)',
         maxWidth: '85%',
         backgroundColor: theme.palette.primary.main,
         padding: '0.5em 2em 0.5em 2em',
+
     },
 }))
 export const SentMessage = (props: any) => {
@@ -51,7 +52,7 @@ export const SentMessage = (props: any) => {
 const useReceiveStyles = makeStyles(theme => ({
     recv: {
         float: 'left',
-        marginBottom: 0,
+        marginBottom: '1em',
         borderRadius: '7.5px',
         boxShadow: '0 1px 0.5px rgba(0,0,0,.13)',
         maxWidth: '85%',
