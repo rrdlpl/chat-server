@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { useMappedState, useDispatch } from 'redux-react-hook';
 import { initSocket } from '../../store/chat/actions';
-import { ChatEnterText } from './ChatEnterText';
-import { ChatConversation } from './ChatConversation';
+import { ChatEnterText } from './ChatEnterText/ChatEnterText';
+import { ChatConversation } from './ChatConversation/ChatConversation';
 export interface IChatProps {
-
 }
+
 export const Chat: React.FC<IChatProps> = () => {
 
     const dispatch = useDispatch()
@@ -21,8 +21,6 @@ export const Chat: React.FC<IChatProps> = () => {
         enterChat()
     }, [enterChat])
 
-
-
     const mapState = React.useCallback(
         (rootState) => ({
             messages: rootState.chat.messages,
@@ -33,12 +31,7 @@ export const Chat: React.FC<IChatProps> = () => {
         []
     )
 
-
-
-    const { messages, commands, connected } = useMappedState(mapState)
-    console.log(' mesages', messages)
-    console.log('commands', commands)
-    console.log('Connected', connected)
+    const { connected } = useMappedState(mapState)
 
     return (
         <div>

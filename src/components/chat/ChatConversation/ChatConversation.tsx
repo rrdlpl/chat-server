@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { Grid, makeStyles, Theme } from '@material-ui/core';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { useMappedState } from 'redux-react-hook';
 import CommandIcon from '@material-ui/icons/BugReport';
 import { blue, cyan } from '@material-ui/core/colors';
+import { ICommand } from '../../../entities/responses/CommandResponse';
 
 
 export const ChatConversation = () => {
@@ -47,8 +48,10 @@ export const SentMessage = (props: any) => {
     return (
         <Grid item={true} xs={12} className={classes.send}>
             <Grid>
-                {payload === 'command_sent' && <div className={classes.command}>A command was sent  <CommandIcon /> </div>}
-                {payload.message}
+                <Typography>
+                    {payload === 'command_sent' && <div className={classes.command}>You sent a command  <CommandIcon /> </div>}
+                    {payload.message}
+                </Typography>
             </Grid>
         </Grid>
     )
@@ -72,8 +75,28 @@ export const ReceivedMessage = (props: any) => {
     return (
         <Grid item={true} xs={12} className={classes.recv}>
             <Grid>
-                {payload.message}
+                {payload.command && <ShowCommand command={payload.command} />}
+                <Typography>
+                    {payload.message}
+                </Typography>
             </Grid>
         </Grid>
+    )
+}
+
+
+interface IShowCommandProps {
+    command: ICommand
+}
+export const ShowCommand = (props: IShowCommandProps) => {
+    const { command } = props
+    return (
+        <div>
+            <Typography>
+                Command received
+            Type: {command.type}
+                data: {JSON.stringify(command.data)}
+            </Typography>
+        </div>
     )
 }
