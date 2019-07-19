@@ -73,6 +73,5 @@ export const RateCommand = (props: IRateProps) => {
 
             </Dialog>
         </>
-
     )
 }
