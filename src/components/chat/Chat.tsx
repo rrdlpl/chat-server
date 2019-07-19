@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useMappedState, useDispatch } from 'redux-react-hook';
-import { initSocket } from '../../store/actions';
+import { initSocket } from '../../store/chat/actions';
 import { ChatEnterText } from './ChatEnterText';
 import { ChatConversation } from './ChatConversation';
 export interface IChatProps {

@@ -1,6 +1,6 @@
-import { IMessageResponse } from './../entities/responses/MessageResponse';
+import { IMessageResponse } from '../../entities/responses/MessageResponse';
 
-import { ICommandResponse } from '../entities/responses/CommandResponse';
+import { ICommandResponse } from '../../entities/responses/CommandResponse';
 import { IChatAction } from './actions';
 import { Socket } from 'dgram';
 

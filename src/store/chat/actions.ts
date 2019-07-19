@@ -1,9 +1,9 @@
 import { Dispatch } from 'redux';
 
 import io from 'socket.io-client';
-import { IMessagePayload } from '../entities/request/MessagePayload';
-import { IMessageResponse } from '../entities/responses/MessageResponse';
-import { ICommandResponse } from '../entities/responses/CommandResponse';
+import { IMessagePayload } from '../../entities/request/MessagePayload';
+import { IMessageResponse } from '../../entities/responses/MessageResponse';
+import { ICommandResponse } from '../../entities/responses/CommandResponse';
 
 
 

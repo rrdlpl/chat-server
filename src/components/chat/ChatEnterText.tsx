@@ -4,7 +4,7 @@ import CommandIcon from '@material-ui/icons/BugReport';
 import * as React from 'react'
 import { Toolbar, AppBar, IconButton, makeStyles, TextField, Tooltip } from '@material-ui/core'
 import { useDispatch, useMappedState } from 'redux-react-hook';
-import { sendMessage, sendCommand } from '../../store/actions';
+import { sendMessage, sendCommand } from '../../store/chat/actions';
 import { IMessagePayload } from '../../entities/request/MessagePayload';
 
 
