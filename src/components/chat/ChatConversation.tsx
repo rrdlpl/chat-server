@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Grid, makeStyles, Theme } from '@material-ui/core';
 import { useMappedState } from 'redux-react-hook';
 import CommandIcon from '@material-ui/icons/BugReport';
+import { blue, cyan } from '@material-ui/core/colors';
 
 
 export const ChatConversation = () => {
@@ -26,19 +27,18 @@ export const ChatConversation = () => {
 }
 
 
-const useSendStyles = makeStyles((theme: Theme) => ({
+const useSendStyles = makeStyles(() => ({
     send: {
         float: 'right',
         marginBottom: '1em',
         borderRadius: '7.5px',
         boxShadow: '0 1px 0.5px rgba(0,0,0,.13)',
         maxWidth: '85%',
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: blue['100'].toString(),
         padding: '0.5em 2em 0.5em 2em',
     },
     command: {
         display: 'inline-flex',
-
     }
 }))
 export const SentMessage = (props: any) => {
@@ -54,14 +54,14 @@ export const SentMessage = (props: any) => {
     )
 }
 
-const useReceiveStyles = makeStyles(theme => ({
+const useReceiveStyles = makeStyles(() => ({
     recv: {
         float: 'left',
         marginBottom: '1em',
         borderRadius: '7.5px',
         boxShadow: '0 1px 0.5px rgba(0,0,0,.13)',
         maxWidth: '85%',
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: cyan['100'],
         padding: '0.5em 2em 0.5em 2em',
     },
 }))
@@ -72,7 +72,6 @@ export const ReceivedMessage = (props: any) => {
     return (
         <Grid item={true} xs={12} className={classes.recv}>
             <Grid>
-
                 {payload.message}
             </Grid>
         </Grid>
