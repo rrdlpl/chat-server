@@ -1,6 +1,6 @@
 
 import * as React from 'react'
-import { Dialog, DialogTitle, DialogContent, Chip } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, Chip, Typography } from '@material-ui/core';
 import { sendMessage } from '../../../../store/chat/actions';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
@@ -56,7 +56,7 @@ export const DateCommand = (props: IDateProps) => {
 
     return (
         <div>
-            Date received {moment(date).toDate().toString()}
+            <Typography>Date received: {moment(date).toDate().toString()}</Typography>
             <Dialog
                 open={open}
                 onClose={() => onClose()}

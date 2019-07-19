@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useMappedState, useDispatch } from 'redux-react-hook';
-import { DialogTitle, Dialog, Button, DialogActions } from '@material-ui/core';
+import { DialogTitle, Dialog, Button, DialogActions, Typography } from '@material-ui/core';
 import { sendMessage, complete } from '../../../../store/chat/actions';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 interface ICompleteProps {
@@ -54,7 +54,7 @@ export const CompleteCommand = (props: ICompleteProps) => {
     const { socket } = useMappedState(mapState)
     return (
         <div>
-            Complete ? {JSON.stringify(options)}
+            <Typography>Complete ? {JSON.stringify(options)}</Typography>
             <Dialog
                 open={open}
                 onClose={() => onClose()}

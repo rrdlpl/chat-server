@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { DialogTitle, DialogContent, Button, Dialog } from '@material-ui/core';
+import { DialogTitle, DialogContent, Button, Dialog, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/StarBorderOutlined';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import { sendMessage } from '../../../../store/chat/actions';
@@ -56,7 +56,7 @@ export const RateCommand = (props: IRateProps) => {
     return (
         <>
             <div>
-                Please Rate from {min} to {max}
+                <Typography>Please Rate from {min} to {max}</Typography>
             </div>
             <Dialog
                 open={open}
