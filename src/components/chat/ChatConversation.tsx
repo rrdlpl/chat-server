@@ -13,7 +13,7 @@ export const ChatConversation = () => {
     const { conversation } = useMappedState(mapState)
 
     return (
-        <Grid container={true} >
+        <Grid container={true} style={{ padding: '2em' }}>
             {conversation.map((c: any, index: number) =>
                 <Grid key={index} item={true} xs={12} >
                     {c.type === 'received' && <ReceivedMessage {...c} />}
@@ -61,7 +61,7 @@ const useReceiveStyles = makeStyles(theme => ({
 }))
 
 export const ReceivedMessage = (props: any) => {
-    const { type, payload } = props
+    const { payload } = props
     const classes = useReceiveStyles()
     return (
         <Grid item={true} xs={12} className={classes.recv}>
