@@ -2,7 +2,7 @@
 import SendIcon from '@material-ui/icons/Send';
 import CommandIcon from '@material-ui/icons/BugReport';
 import * as React from 'react'
-import { Toolbar, AppBar, IconButton, makeStyles, TextField, Tooltip, Button } from '@material-ui/core'
+import { Toolbar, AppBar, makeStyles, TextField, Tooltip, Button } from '@material-ui/core'
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import { sendMessage, sendCommand } from '../../store/chat/actions';
 import { IMessagePayload } from '../../entities/request/MessagePayload';
@@ -37,8 +37,7 @@ export const ChatEnterText = () => {
       [dispatch],
     )
   const onSendMessageClick = () => {
-    console.log('Send message')
-    if (socket) {
+    if (socket && text && text !== '') {
       dispatchMessage(socket, { author: 'toset', message: text })
       setText('')
     }
@@ -77,14 +76,13 @@ export const ChatEnterText = () => {
 
         <div className={classes.grow} />
         <Tooltip title={"After clicking here a message will be sent"}>
-          <Button onClick={() => onSendMessageClick()}>
+          <Button onClick={() => onSendMessageClick()} disabled={(!text || text === '')}>
             <SendIcon />
           </Button>
         </Tooltip>
         <Tooltip title={"After clicking here a command will be sent"}>
           <Button onClick={() => onCommandClick()}>
             <CommandIcon />
-
           </Button>
         </Tooltip>
       </Toolbar>
