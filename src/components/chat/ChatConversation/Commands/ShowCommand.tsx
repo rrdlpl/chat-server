@@ -4,6 +4,10 @@
 import * as React from 'react'
 import { Typography } from '@material-ui/core';
 import { ICommand, ILocation } from '../../../../entities/responses/CommandResponse';
+import { CompleteCommand } from './CompleteCommand';
+import { MapCommand } from './MapCommand';
+import { DateCommand } from './DateCommand';
+import { RateCommand } from './RateCommand';
 
 interface IShowCommandProps {
     command: ICommand
@@ -38,54 +42,7 @@ export const ShowCommand = (props: IShowCommandProps) => {
 }
 
 
-interface IDateProps {
-    date: string
-}
-const DateCommand = (props: IDateProps) => {
-    const { date } = props
-    return (
-        <div>
-            {date}
-        </div>
-    )
-}
-
-interface IRateProps {
-    min: number,
-    max: number
-}
-
-const RateCommand = (props: IRateProps) => {
-    const { min, max } = props
-    return (
-        <div>
-            {min}, {max}
-        </div>
-    )
-}
-
-interface IMapProps {
-    location: ILocation
-}
-export const MapCommand = (props: IMapProps) => {
-    const { location } = props
-    return (
-        < div >
-            {location.lat}, {location.lng}
-        </div >
-    )
-}
-
-interface ICompleteProps {
-    options: string[]
-}
-export const CompleteCommand = (props: ICompleteProps) => {
-    const { options } = props
-    return (
-        <div>
-            {JSON.stringify(options)}
-        </div>
-    )
 
 
-}
+
+

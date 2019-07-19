@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { cyan } from '@material-ui/core/colors';
 
-import { ShowCommand } from '../Command/ShowCommand';
+import { ShowCommand } from '../Commands/ShowCommand';
 
 
 
