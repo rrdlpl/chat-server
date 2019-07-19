@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Grid, makeStyles, Theme } from '@material-ui/core';
 import { useMappedState } from 'redux-react-hook';
+import CommandIcon from '@material-ui/icons/BugReport';
 
 
 export const ChatConversation = () => {
@@ -34,8 +35,11 @@ const useSendStyles = makeStyles((theme: Theme) => ({
         maxWidth: '85%',
         backgroundColor: theme.palette.primary.main,
         padding: '0.5em 2em 0.5em 2em',
-
     },
+    command: {
+        display: 'inline-flex',
+
+    }
 }))
 export const SentMessage = (props: any) => {
     const { payload } = props
@@ -43,6 +47,7 @@ export const SentMessage = (props: any) => {
     return (
         <Grid item={true} xs={12} className={classes.send}>
             <Grid>
+                {payload === 'command_sent' && <div className={classes.command}>A command was sent  <CommandIcon /> </div>}
                 {payload.message}
             </Grid>
         </Grid>
@@ -67,6 +72,7 @@ export const ReceivedMessage = (props: any) => {
     return (
         <Grid item={true} xs={12} className={classes.recv}>
             <Grid>
+
                 {payload.message}
             </Grid>
         </Grid>
