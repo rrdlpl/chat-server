@@ -4,6 +4,7 @@ import { Dialog, DialogTitle, DialogContent, Chip } from '@material-ui/core';
 import { sendMessage } from '../../../../store/chat/actions';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
+import moment from 'moment';
 
 interface IDateProps {
     date: string
@@ -11,7 +12,22 @@ interface IDateProps {
 export const DateCommand = (props: IDateProps) => {
     const { date } = props
     const [open, setOpen] = React.useState(true)
-    const workdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+    const [workdays, setWorkdays] = React.useState(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'])
+
+    React.useEffect(() => {
+        const momentDate = moment(date).toDate()
+        const start = moment(momentDate).isoWeekday() - 1
+        const workdayAux = []
+        for (let i = start; i < workdays.length; i++) {
+            workdayAux.push(workdays[i])
+        }
+        for (let i = 0; i < start; i++) {
+            workdayAux.push(workdays[i])
+        }
+        setWorkdays(workdayAux)
+        // eslint-disable-next-line
+    }, [date])
+
     const mapState = React.useCallback(
         (rootState) => ({
             socket: rootState.chat.socket
@@ -40,7 +56,7 @@ export const DateCommand = (props: IDateProps) => {
 
     return (
         <div>
-            Date received {date}
+            Date received {moment(date).toDate().toString()}
             <Dialog
                 open={open}
                 onClose={() => onClose()}
@@ -50,7 +66,7 @@ export const DateCommand = (props: IDateProps) => {
                 </DialogTitle>
                 <DialogContent>
                     {workdays.map((workday: string, index: number) =>
-                        <Chip key={index} label={workday} onClick={() => onSelectDay(workday)} />
+                        <Chip key={index} label={workday} onClick={() => onSelectDay(workday)} color={'primary'} size={'small'} />
                     )}
                 </DialogContent>
             </Dialog>
