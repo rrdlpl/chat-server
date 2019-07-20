@@ -4,6 +4,7 @@ import { useChatState } from '../../../../hooks/chat/useChatState';
 import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
 import { useDispatchComplete } from '../../../../hooks/chat/useDispatchComplete';
 import { useLoginState } from '../../../../hooks/login/useLoginState';
+import { useDispatchLogout } from '../../../../hooks/login/useDispatchLogout';
 interface ICompleteProps {
     options: string[];
 }
@@ -24,10 +25,12 @@ export const CompleteCommand = (props: ICompleteProps) => {
     const dispatchMessage = useDispatchMessage()
     const dispatchComplete = useDispatchComplete()
     const { username } = useLoginState()
+    const dispatchLogout = useDispatchLogout()
     const onComplete = () => {
         onClose()
         dispatchMessage(socket, { author: username, message: yes })
         dispatchComplete(socket)
+        dispatchLogout()
     }
 
     const onContinue = () => {
