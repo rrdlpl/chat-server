@@ -46,7 +46,6 @@ export const SentMessage = (props: any) => {
                         </Typography>
                     </div>
                 </div>
-
             </Grid>
         </Grid>
     )

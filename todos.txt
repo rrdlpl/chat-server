@@ -1,4 +1,3 @@
 
 - Create docker file
-- Show names in the conversation authors
 - Scroll problem
