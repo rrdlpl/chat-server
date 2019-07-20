@@ -49,7 +49,6 @@ export const CompleteCommand = (props: ICompleteProps) => {
                         {no}
                     </Button>
                 </DialogActions>
-
             </Dialog>
         </div>
     );

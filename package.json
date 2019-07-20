@@ -11,9 +11,11 @@
     "@types/react-dom": "16.8.4",
     "connected-react-router": "4.4.1",
     "history": "^4.9.0",
+    "leaflet": "^1.5.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-leaflet": "^2.4.0",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-redux": "^4.0.8",
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@types/history": "^4.7.2",
+    "@types/react-leaflet": "^2.2.1",
     "@types/react-redux": "^7.1.1",
     "@types/redux": "^3.6.0",
     "@types/socket.io-client": "^1.4.32"
