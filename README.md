@@ -1,4 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## How to Run the App for Local Development
+Run the following commands on the project folder
+ - `$npm install`
+ - `$npm start`
+ 
+
+## Run with Docker
+
+You can also run this App with Docker to do that you need to install:
+- Install [Docker](https://docs.docker.com/install/) 
+- Install [docker-compose](https://docs.docker.com/compose/install/)
+
+Then in the project folder Run:
+- `$docker-compose up` and the website
 
 ## Available Scripts
 
@@ -37,17 +51,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## How to Run the App for Local Development
-Run the following commands on the project folder
- - `$npm install`
- - `$npm start`
- 
-
-## Run with Docker
-
-You can also run this App with Docker to do that you need to install:
-- Install [Docker](https://docs.docker.com/install/) 
-- Install [docker-compose](https://docs.docker.com/compose/install/)
-
-Then in the project folder Run:
-- `$docker-compose up` and the website
