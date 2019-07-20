@@ -5,10 +5,12 @@ import thunk from 'redux-thunk'
 import { createBrowserHistory } from 'history'
 import { History } from 'history'
 import { chatReducer } from './chat/chat-reducer';
+import { loginReducer } from './login/login-reducer';
 
 
 const rootReducer = combineReducers({
-    chat: chatReducer
+    chat: chatReducer,
+    login: loginReducer
 })
 
 // The store orchestrates all the moving parts in Redux.

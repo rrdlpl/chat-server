@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { DialogTitle, DialogContent, Button, Dialog, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/StarBorderOutlined';
-import { useChatState } from '../../../../hooks/useChatState';
-import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
+import { useChatState } from '../../../../hooks/chat/useChatState';
+import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
 
 
 interface IRateProps {
@@ -23,7 +23,7 @@ export const RateCommand = (props: IRateProps) => {
         setOpen(false)
     }
 
-    const stars = []
+    const stars = new Array < any > ()
 
     for (let i = min; i <= max; i++) {
         stars.push(

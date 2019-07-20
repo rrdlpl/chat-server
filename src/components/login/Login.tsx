@@ -4,15 +4,12 @@ import * as React from 'react'
 import logo from './logo.png'
 import brand from './brand.svg'
 import ChatBubble from '@material-ui/icons/ChatBubble'
+import { useDispatchLogin } from '../../hooks/login/useDispatchLogin';
 
 const useLoginStyles = makeStyles((theme: any) => ({
     container: {
         width: '100vw',
         minHeight: '100vh'
-    },
-    signInButtonContainer: {
-        // width: 350,
-        // height: '100%'
     },
     leftIcon: {
         marginRight: theme.spacing(2),
@@ -22,18 +19,16 @@ const useLoginStyles = makeStyles((theme: any) => ({
     chatServer: {
         display: 'inline-block',
     },
-    // textContainer: {
-
-    //     padding: 0
-    // }
 }));
 
 export const Login = () => {
     const classes = useLoginStyles()
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
+    const dispatchLogin = useDispatchLogin()
     const onLogin = () => {
         console.log('Log in')
+        dispatchLogin(username, password)
     }
     return (
         <Grid
@@ -72,7 +67,7 @@ export const Login = () => {
                         <TextField placeholder={'Password'} type={'password'} value={password} onChange={(e) => setPassword(e.target.value)}
                             autoComplete={'off'} />
                     </Grid>
-                    <Grid item={true} xs={12} md={12} sm={12} className={classes.signInButtonContainer}>
+                    <Grid item={true} xs={12} md={12} sm={12} >
                         <Button variant='outlined' color='primary' onClick={() => onLogin()}>
                             <img src={logo} alt='logo' className={classes.leftIcon} />
                             Login

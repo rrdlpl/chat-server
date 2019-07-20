@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { IMessagePayload } from '../entities/request/MessagePayload';
-import { sendMessage } from '../store/chat/chat-actions';
+import { IMessagePayload } from '../../entities/request/MessagePayload';
+import { sendMessage } from '../../store/chat/chat-actions';
 import { useDispatch } from 'react-redux';
 
 /**

@@ -2,8 +2,8 @@
 import * as React from 'react'
 import { Dialog, DialogTitle, DialogContent, Chip, Typography } from '@material-ui/core';
 import moment from 'moment';
-import { useChatState } from '../../../../hooks/useChatState';
-import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
+import { useChatState } from '../../../../hooks/chat/useChatState';
+import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
 
 interface IDateProps {
     date: string
@@ -22,7 +22,7 @@ export const DateCommand = (props: IDateProps) => {
     React.useEffect(() => {
         const momentDate = moment(date).toDate()
         const start = moment(momentDate).isoWeekday() - 1
-        const workdayAux = []
+        const workdayAux = new Array<string>()
         for (let i = start; i < workdays.length; i++) {
             workdayAux.push(workdays[i])
         }

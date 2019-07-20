@@ -1,5 +1,5 @@
 import { useDispatch } from 'redux-react-hook';
-import { initSocket } from '../store/chat/chat-actions';
+import { initSocket } from '../../store/chat/chat-actions';
 import React from 'react';
 
 /**

@@ -1,4 +1,4 @@
-import { complete } from '../store/chat/chat-actions';
+import { complete } from '../../store/chat/chat-actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 

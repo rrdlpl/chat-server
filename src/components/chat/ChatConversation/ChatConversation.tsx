@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Grid } from '@material-ui/core';
 import { SentMessage } from './SentMessage/SentMessage';
 import { ReceivedMessage } from './ReceivedMessage/ReceivedMessage';
-import { useChatState } from '../../../hooks/useChatState';
+import { useChatState } from '../../../hooks/chat/useChatState';
 
 
 /**

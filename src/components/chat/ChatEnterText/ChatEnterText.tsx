@@ -3,9 +3,9 @@ import SendIcon from '@material-ui/icons/Send';
 import CommandIcon from '@material-ui/icons/BugReport';
 import * as React from 'react'
 import { Toolbar, AppBar, makeStyles, TextField, Tooltip, Button } from '@material-ui/core'
-import { useChatState } from '../../../hooks/useChatState';
-import { useDispatchMessage } from '../../../hooks/useDispatchMessage';
-import { useDispatchCommand } from '../../../hooks/useDispatchCommand';
+import { useChatState } from '../../../hooks/chat/useChatState';
+import { useDispatchMessage } from '../../../hooks/chat/useDispatchMessage';
+import { useDispatchCommand } from '../../../hooks/chat/useDispatchCommand';
 
 
 

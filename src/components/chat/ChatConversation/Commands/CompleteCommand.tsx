@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { DialogTitle, Dialog, Button, DialogActions, Typography } from '@material-ui/core';
-import { useChatState } from '../../../../hooks/useChatState';
-import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
-import { useDispatchComplete } from '../../../../hooks/useDispatchComplete';
+import { useChatState } from '../../../../hooks/chat/useChatState';
+import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
+import { useDispatchComplete } from '../../../../hooks/chat/useDispatchComplete';
 interface ICompleteProps {
     options: string[];
 }
