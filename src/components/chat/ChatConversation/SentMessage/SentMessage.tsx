@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import CommandIcon from '@material-ui/icons/BugReport';
 import { blue } from '@material-ui/core/colors';
+import { useLoginState } from '../../../../hooks/login/useLoginState';
 
 const useSendStyles = makeStyles(() => ({
     send: {
@@ -15,6 +16,11 @@ const useSendStyles = makeStyles(() => ({
     },
     command: {
         display: 'inline-flex',
+    },
+    author: {
+        float: 'right',
+        textAlign: 'right',
+        display: 'contents'
     }
 }))
 /**
@@ -25,13 +31,22 @@ const useSendStyles = makeStyles(() => ({
 export const SentMessage = (props: any) => {
     const { payload } = props
     const classes = useSendStyles()
+    const { username } = useLoginState()
     return (
         <Grid item={true} xs={12} className={classes.send}>
             <Grid>
-                <Typography>
-                    {payload === 'command_sent' && <span className={classes.command}>You sent a command  <CommandIcon /> </span>}
-                    {payload.message}
-                </Typography>
+                <div className={classes.author}>
+                    <div >
+                        <Typography variant="button" display="block" ><b>{username}</b></Typography>
+                    </div>
+                    <div>
+                        <Typography>
+                            {payload === 'command_sent' && <span className={classes.command}>You sent a command  <CommandIcon /> </span>}
+                            {payload.message}
+                        </Typography>
+                    </div>
+                </div>
+
             </Grid>
         </Grid>
     )
