@@ -1,11 +1,6 @@
 
-2 - Implement commands functionality
-
-2.3 Complete
-2.4 Date
-2.5 Map
-
-3 - Create docker file
+- Create docker file
 - Add login
 - Set author 
 - Show names in the conversation authors
+- Scroll problem

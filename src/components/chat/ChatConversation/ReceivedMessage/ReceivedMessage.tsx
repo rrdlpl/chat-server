@@ -18,6 +18,11 @@ const useReceiveStyles = makeStyles(() => ({
     },
 }))
 
+/**
+ * Component used to render the Received Messages from the Chat server
+ * they are displayed to the left
+ * @param props 
+ */
 export const ReceivedMessage = (props: any) => {
     const { payload } = props
     const classes = useReceiveStyles()

@@ -6,6 +6,10 @@ import { useDispatchComplete } from '../../../../hooks/useDispatchComplete';
 interface ICompleteProps {
     options: string[];
 }
+/**
+ * Component to Render Command of type Complete
+ * @param props 
+ */
 export const CompleteCommand = (props: ICompleteProps) => {
     const { options } = props;
     const yes = options[0]

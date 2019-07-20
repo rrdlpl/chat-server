@@ -4,10 +4,7 @@ import io from 'socket.io-client';
 import { IMessagePayload } from '../../entities/request/MessagePayload';
 import { IMessageResponse } from '../../entities/responses/MessageResponse';
 import { ICommandResponse } from '../../entities/responses/CommandResponse';
-import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT, DISCONNECTED } from './constants';
-
-
-
+import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT, DISCONNECTED } from './chat-constants';
 
 export interface IChatAction {
     type: string
@@ -15,6 +12,10 @@ export interface IChatAction {
     socket: SocketIOClient.Socket
 }
 
+/**
+ * Connects to the chat server
+ * and register to message, command, and disconnect Events.
+ */
 export const initSocket = () => {
     return (dispatch: Dispatch) => {
         const socket = io('https://demo-chat-server.on.ag/');
@@ -38,6 +39,11 @@ export const initSocket = () => {
     }
 };
 
+/**
+ * Sends a message to the chat server
+ * @param socket  the socket client
+ * @param payload message payload
+ */
 export const sendMessage = (socket: any, payload: IMessagePayload) => {
     return (dispatch: Dispatch) => {
         if (socket) {
@@ -49,6 +55,10 @@ export const sendMessage = (socket: any, payload: IMessagePayload) => {
     }
 }
 
+/**
+ * Sends a command to the chat server
+ * @param socket the socket client
+ */
 export const sendCommand = (socket: SocketIOClient.Socket) => {
     return (dispatch: Dispatch) => {
         if (socket) {
@@ -60,6 +70,10 @@ export const sendCommand = (socket: SocketIOClient.Socket) => {
     }
 }
 
+/**
+ * Disconnects the socket client from the chat server
+ * @param socket the socket client
+ */
 export const complete = (socket: SocketIOClient.Socket) => {
     return (dispatch: Dispatch) => {
         if (socket) {
@@ -69,6 +83,9 @@ export const complete = (socket: SocketIOClient.Socket) => {
     }
 }
 
+/**
+ * Sends a fake message when the client is disconnected
+ */
 const sendDisconnectedMessage = () => {
     return { type: MESSAGE_RECEIVED, payload: { message: 'Chat disconnected. Please refresh the browser to connect again.' } }
 }

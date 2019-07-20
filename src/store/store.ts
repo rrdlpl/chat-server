@@ -4,7 +4,7 @@ import { routerMiddleware, connectRouter } from 'connected-react-router'
 import thunk from 'redux-thunk'
 import { createBrowserHistory } from 'history'
 import { History } from 'history'
-import { chatReducer } from './chat/reducer';
+import { chatReducer } from './chat/chat-reducer';
 
 
 const rootReducer = combineReducers({

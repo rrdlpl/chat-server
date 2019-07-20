@@ -19,6 +19,9 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+/**
+ * Component used to Enter the user messages and send commands
+ */
 export const ChatEnterText = () => {
   const classes = useStyles()
   const [text, setText] = React.useState('')

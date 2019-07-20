@@ -8,6 +8,12 @@ import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
 interface IDateProps {
     date: string
 }
+
+
+/**
+ * Component to Render Command of type Date
+ * @param props 
+ */
 export const DateCommand = (props: IDateProps) => {
     const { date } = props
     const [open, setOpen] = React.useState(true)

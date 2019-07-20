@@ -1,8 +1,8 @@
-import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT, DISCONNECTED } from './constants';
+import { CONNECTED, COMMAND_RECEIVED, MESSAGE_RECEIVED, MESSAGE_SENT, COMMAND_SENT, DISCONNECTED } from './chat-constants';
 import { IMessageResponse } from '../../entities/responses/MessageResponse';
 
 import { ICommandResponse } from '../../entities/responses/CommandResponse';
-import { IChatAction } from './actions';
+import { IChatAction } from './chat-actions';
 import { IMessagePayload } from '../../entities/request/MessagePayload';
 
 

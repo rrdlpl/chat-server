@@ -1,4 +1,4 @@
-import { sendCommand } from '../store/chat/actions';
+import { sendCommand } from '../store/chat/chat-actions'; 
 import { useDispatch } from 'redux-react-hook';
 import React from 'react';
 

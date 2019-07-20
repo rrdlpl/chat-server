@@ -6,6 +6,12 @@ import { Map, TileLayer, Marker } from 'react-leaflet'
 interface IMapProps {
     location: ILocation;
 }
+
+
+/**
+ * Component to Render Command of type Map
+ * @param props 
+ */
 export const MapCommand = (props: IMapProps) => {
     const { location } = props;
     const [open, setOpen] = React.useState(true)

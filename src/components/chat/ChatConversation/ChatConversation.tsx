@@ -5,7 +5,10 @@ import { ReceivedMessage } from './ReceivedMessage/ReceivedMessage';
 import { useChatState } from '../../../hooks/useChatState';
 
 
-
+/**
+ * Component used to display the conversation between the
+ * client and the server
+ */
 export const ChatConversation = () => {
     const { conversation } = useChatState()
     return (

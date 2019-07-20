@@ -1,7 +1,8 @@
-import { sendMessage } from '../store/chat/actions';
-import { useDispatch } from 'redux-react-hook';
+
 import React from 'react';
 import { IMessagePayload } from '../entities/request/MessagePayload';
+import { sendMessage } from '../store/chat/chat-actions';
+import { useDispatch } from 'react-redux';
 
 /**
  * Dispatches a message action to redux

@@ -10,6 +10,11 @@ interface IRateProps {
     max: number
 }
 
+
+/**
+ * Component to Render Command of type Rate
+ * @param props 
+ */
 export const RateCommand = (props: IRateProps) => {
     const { min, max } = props
     const [open, setOpen] = React.useState(true)

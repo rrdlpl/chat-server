@@ -17,6 +17,11 @@ const useSendStyles = makeStyles(() => ({
         display: 'inline-flex',
     }
 }))
+/**
+ * Component used to display the sent messages
+ * they are displayed to the right
+ * @param props 
+ */
 export const SentMessage = (props: any) => {
     const { payload } = props
     const classes = useSendStyles()

@@ -12,6 +12,13 @@ import { RateCommand } from './RateCommand';
 interface IShowCommandProps {
     command: ICommand
 }
+
+
+/**
+ * Component to Render the Exact type of Command
+ * if the type is unknown the payload of the command will be rendered
+ * @param props 
+ */
 export const ShowCommand = (props: IShowCommandProps) => {
     const { command } = props
     switch (command.type) {
