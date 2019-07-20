@@ -1,6 +1,8 @@
 
 import SendIcon from '@material-ui/icons/Send';
 import CommandIcon from '@material-ui/icons/BugReport';
+import WifiOnIcon from '@material-ui/icons/Wifi';
+import WifiOffIcon from '@material-ui/icons/Wifi';
 import * as React from 'react'
 import { Toolbar, AppBar, makeStyles, TextField, Tooltip, Button } from '@material-ui/core'
 import { useChatState } from '../../../hooks/chat/useChatState';
@@ -17,6 +19,12 @@ const useStyles = makeStyles(() => ({
   },
   grow: {
     flexGrow: 1,
+  },
+  wifiOn: {
+    color: 'lightgreen'
+  },
+  wifiOff: {
+    color: 'gray'
   }
 }));
 
@@ -40,7 +48,7 @@ export const ChatEnterText = () => {
   const onCommandClick = () => {
     dispatchCommand(socket)
   }
-  const { socket } = useChatState()
+  const { socket, connected } = useChatState()
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar>
@@ -65,6 +73,12 @@ export const ChatEnterText = () => {
           <Button onClick={() => onCommandClick()}>
             <CommandIcon />
           </Button>
+        </Tooltip>
+        <Tooltip title={connected ? 'Chat is online' : 'Chat is offline'}>
+          <div>
+            {connected && <WifiOnIcon className={classes.wifiOn} />}
+            {!connected && <WifiOffIcon className={classes.wifiOff} />}
+          </div>
         </Tooltip>
       </Toolbar>
     </AppBar>
