@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import { Chat } from './components/chat/Chat';
+
+import { Login } from './components/login/Login';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Chat />
+      {/* <Chat /> */}
+      <Login />
     </div>
   );
 }
