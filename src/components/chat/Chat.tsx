@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { useDispatch } from 'redux-react-hook';
-import { initSocket } from '../../store/chat/chat-actions';
 import { ChatEnterText } from './ChatEnterText/ChatEnterText';
 import { ChatConversation } from './ChatConversation/ChatConversation';
 import { useChatState } from '../../hooks/useChatState';
