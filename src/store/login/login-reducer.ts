@@ -18,7 +18,7 @@ export const loginReducer = (state: ILoginState = initialState, action: ILoginAc
         case LOADING: {
             return {
                 ...state,
-                LOADING: true
+                loading: true
             }
         }
         case LOGGED_IN: {
