@@ -1,20 +1,13 @@
 import * as React from 'react'
 import { Grid } from '@material-ui/core';
-import { useMappedState } from 'redux-react-hook';
-
 import { SentMessage } from './SentMessage/SentMessage';
 import { ReceivedMessage } from './ReceivedMessage/ReceivedMessage';
+import { useChatState } from '../../../hooks/useChatState';
+
 
 
 export const ChatConversation = () => {
-    const mapState = React.useCallback(
-        (rootState) => ({
-            conversation: rootState.chat.conversation
-        }),
-        []
-    )
-    const { conversation } = useMappedState(mapState)
-
+    const { conversation } = useChatState()
     return (
         <Grid container={true} style={{ padding: '1em' }}>
             {conversation.map((c: any, index: number) =>

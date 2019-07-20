@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { useMappedState, useDispatch } from 'redux-react-hook';
+import { useDispatch } from 'redux-react-hook';
 import { DialogTitle, Dialog, Button, DialogActions, Typography } from '@material-ui/core';
 import { sendMessage, complete } from '../../../../store/chat/actions';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
+import { useChatState } from '../../../../hooks/useChatState';
 interface ICompleteProps {
     options: string[];
 }
@@ -16,13 +17,6 @@ export const CompleteCommand = (props: ICompleteProps) => {
         setOpen(false)
     }
 
-
-    const mapState = React.useCallback(
-        (rootState) => ({
-            socket: rootState.chat.socket
-        }),
-        []
-    )
     const dispatch = useDispatch()
 
     const dispatchMessage: any =
@@ -51,7 +45,8 @@ export const CompleteCommand = (props: ICompleteProps) => {
         dispatchMessage(socket, { author: 'toset', message: no })
     }
 
-    const { socket } = useMappedState(mapState)
+    const { socket } = useChatState()
+
     return (
         <div>
             <Typography>Complete ? {JSON.stringify(options)}</Typography>

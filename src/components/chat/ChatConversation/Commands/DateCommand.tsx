@@ -2,9 +2,10 @@
 import * as React from 'react'
 import { Dialog, DialogTitle, DialogContent, Chip, Typography } from '@material-ui/core';
 import { sendMessage } from '../../../../store/chat/actions';
-import { useDispatch, useMappedState } from 'redux-react-hook';
+import { useDispatch } from 'redux-react-hook';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 import moment from 'moment';
+import { useChatState } from '../../../../hooks/useChatState';
 
 interface IDateProps {
     date: string
@@ -28,13 +29,8 @@ export const DateCommand = (props: IDateProps) => {
         // eslint-disable-next-line
     }, [date])
 
-    const mapState = React.useCallback(
-        (rootState) => ({
-            socket: rootState.chat.socket
-        }),
-        []
-    )
-    const { socket } = useMappedState(mapState)
+    const { socket } = useChatState()
+
 
     const dispatch = useDispatch()
 

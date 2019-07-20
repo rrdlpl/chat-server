@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { DialogTitle, DialogContent, Button, Dialog, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/StarBorderOutlined';
-import { useDispatch, useMappedState } from 'redux-react-hook';
+import { useDispatch } from 'redux-react-hook';
 import { sendMessage } from '../../../../store/chat/actions';
 import { IMessagePayload } from '../../../../entities/request/MessagePayload';
+import { useChatState } from '../../../../hooks/useChatState';
 
 
 interface IRateProps {
@@ -44,14 +45,8 @@ export const RateCommand = (props: IRateProps) => {
     }
 
 
-    const mapState = React.useCallback(
-        (rootState) => ({
-            socket: rootState.chat.socket
-        }),
-        []
-    )
+    const { socket } = useChatState()
 
-    const { socket } = useMappedState(mapState)
 
     return (
         <>
