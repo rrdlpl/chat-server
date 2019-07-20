@@ -3,6 +3,7 @@ import { DialogTitle, Dialog, Button, DialogActions, Typography } from '@materia
 import { useChatState } from '../../../../hooks/chat/useChatState';
 import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
 import { useDispatchComplete } from '../../../../hooks/chat/useDispatchComplete';
+import { useLoginState } from '../../../../hooks/login/useLoginState';
 interface ICompleteProps {
     options: string[];
 }
@@ -22,15 +23,16 @@ export const CompleteCommand = (props: ICompleteProps) => {
 
     const dispatchMessage = useDispatchMessage()
     const dispatchComplete = useDispatchComplete()
+    const { username } = useLoginState()
     const onComplete = () => {
         onClose()
-        dispatchMessage(socket, { author: 'toset', message: yes })
+        dispatchMessage(socket, { author: username, message: yes })
         dispatchComplete(socket)
     }
 
     const onContinue = () => {
         onClose()
-        dispatchMessage(socket, { author: 'toset', message: no })
+        dispatchMessage(socket, { author: username, message: no })
     }
 
     const { socket } = useChatState()

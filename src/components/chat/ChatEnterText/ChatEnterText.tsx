@@ -6,6 +6,7 @@ import { Toolbar, AppBar, makeStyles, TextField, Tooltip, Button } from '@materi
 import { useChatState } from '../../../hooks/chat/useChatState';
 import { useDispatchMessage } from '../../../hooks/chat/useDispatchMessage';
 import { useDispatchCommand } from '../../../hooks/chat/useDispatchCommand';
+import { useLoginState } from '../../../hooks/login/useLoginState';
 
 
 
@@ -27,10 +28,11 @@ export const ChatEnterText = () => {
   const [text, setText] = React.useState('')
   const dispatchMessage = useDispatchMessage()
   const dispatchCommand = useDispatchCommand()
+  const { username } = useLoginState()
 
   const onSendMessageClick = () => {
     if (text && text !== '') {
-      dispatchMessage(socket, { author: 'toset', message: text })
+      dispatchMessage(socket, { author: username, message: text })
       setText('')
     }
   }

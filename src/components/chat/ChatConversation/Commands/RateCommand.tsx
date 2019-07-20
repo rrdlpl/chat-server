@@ -3,6 +3,7 @@ import { DialogTitle, DialogContent, Button, Dialog, Typography } from '@materia
 import StarIcon from '@material-ui/icons/StarBorderOutlined';
 import { useChatState } from '../../../../hooks/chat/useChatState';
 import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
+import { useLoginState } from '../../../../hooks/login/useLoginState';
 
 
 interface IRateProps {
@@ -23,7 +24,7 @@ export const RateCommand = (props: IRateProps) => {
         setOpen(false)
     }
 
-    const stars = new Array < any > ()
+    const stars = new Array<any>()
 
     for (let i = min; i <= max; i++) {
         stars.push(
@@ -33,11 +34,12 @@ export const RateCommand = (props: IRateProps) => {
         )
     }
     const dispatchMessage = useDispatchMessage()
+    const { username } = useLoginState()
 
     const giveRating = (r: number) => {
         setRating(r)
         onClose()
-        dispatchMessage(socket, { author: 'toset', message: 'I rate this app with ' + r + ' star(s)' })
+        dispatchMessage(socket, { author: username, message: 'I rate this app with ' + r + ' star(s)' })
     }
 
 

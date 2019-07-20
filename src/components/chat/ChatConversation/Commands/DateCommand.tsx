@@ -4,6 +4,7 @@ import { Dialog, DialogTitle, DialogContent, Chip, Typography } from '@material-
 import moment from 'moment';
 import { useChatState } from '../../../../hooks/chat/useChatState';
 import { useDispatchMessage } from '../../../../hooks/chat/useDispatchMessage';
+import { useLoginState } from '../../../../hooks/login/useLoginState';
 
 interface IDateProps {
     date: string
@@ -34,6 +35,7 @@ export const DateCommand = (props: IDateProps) => {
     }, [date])
 
     const { socket } = useChatState()
+    const { username } = useLoginState()
     const dispatchMessage = useDispatchMessage()
 
 
@@ -42,7 +44,7 @@ export const DateCommand = (props: IDateProps) => {
     }
 
     const onSelectDay = (workday: string) => {
-        dispatchMessage(socket, { author: 'tosev', message: workday })
+        dispatchMessage(socket, { author: username, message: workday })
         onClose()
     }
 
