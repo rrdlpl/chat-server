@@ -1,5 +1,8 @@
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 
+/**
+ * Theme for the website
+ */
 export const mainTheme: Theme = createMuiTheme({
     palette: {
         primary: {

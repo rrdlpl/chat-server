@@ -20,7 +20,9 @@ const useLoginStyles = makeStyles((theme: any) => ({
         display: 'inline-block',
     },
 }));
-
+/**
+ * Login Screen Component
+ */
 export const Login = () => {
     const classes = useLoginStyles()
     const [username, setUsername] = React.useState('')

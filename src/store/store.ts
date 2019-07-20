@@ -21,5 +21,5 @@ export const store = createStore(
     compose(applyMiddleware(routerMiddleware(history), thunk))
 )
 
-// The state of the application lives as a single, timmutable object within the store.
+// The state of the application lives as a single, immutable object within the store.
 export default store

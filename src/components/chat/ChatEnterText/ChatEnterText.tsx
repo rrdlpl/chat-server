@@ -40,7 +40,11 @@ export const ChatEnterText = () => {
 
   const onSendMessageClick = () => {
     if (text && text !== '') {
-      dispatchMessage(socket, { author: username, message: text })
+      if (text.startsWith('/command')) {
+        dispatchCommand(socket)
+      } else {
+        dispatchMessage(socket, { author: username, message: text })
+      }
       setText('')
     }
   }
@@ -53,7 +57,7 @@ export const ChatEnterText = () => {
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar>
         <TextField fullWidth={true} value={text} onChange={(e) => setText(e.currentTarget.value)}
-          placeholder="Enter your message"
+          placeholder="Enter your message or /command"
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               onSendMessageClick()

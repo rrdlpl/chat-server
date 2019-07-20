@@ -37,8 +37,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Run with Docker
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can also run this App with Docker to do that you need to install:
+- Install [Docker](https://docs.docker.com/install/) 
+- Install [docker-compose](https://docs.docker.com/compose/install/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then in the project folder Run:
+- `$docker-compose up` and the website

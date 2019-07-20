@@ -3,7 +3,7 @@ import React from 'react';
 import { logout } from '../../store/login/login-action';
 
 /**
- * Dispatches the login action to redux
+ * Dispatches the logout action to redux
  */
 export const useDispatchLogout = () => {
     const dispatch = useDispatch()
