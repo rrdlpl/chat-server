@@ -7,17 +7,12 @@ import { IMessagePayload } from '../../entities/request/MessagePayload';
 
 
 const initialState: IChatReducer = {
-    messages: [],
-    commands: [],
     conversation: [],
-    lastCommand: undefined,
     connected: false,
     socket: undefined
 }
 
 interface IChatReducer {
-    messages: IMessageResponse[]
-    commands: ICommandResponse[]
     conversation: Array<any>,
     lastCommand?: ICommandResponse
     connected: boolean,
@@ -37,8 +32,6 @@ export const chatReducer = (state: IChatReducer = initialState, action: IChatAct
             const command = action.payload as ICommandResponse
             return {
                 ...state,
-                commands: [...state.commands, command],
-                lastCommand: command,
                 conversation: [...state.conversation, { type: 'received', payload: command }]
             }
         }
@@ -46,7 +39,6 @@ export const chatReducer = (state: IChatReducer = initialState, action: IChatAct
             const message = action.payload as IMessageResponse
             return {
                 ...state,
-                messages: [...state.messages, message],
                 conversation: [...state.conversation, { type: 'received', payload: message }]
             }
         }
@@ -68,7 +60,6 @@ export const chatReducer = (state: IChatReducer = initialState, action: IChatAct
                 ...state,
                 socket: undefined,
                 connected: false,
-
             }
         }
         default: {
