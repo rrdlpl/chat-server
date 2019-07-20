@@ -17,10 +17,8 @@ const App: React.FC = () => {
           {loading && <CircularProgress />}
         </DialogContent>
       </Dialog>
-      {/* <Chat /> */}
       {!loggedIn && <Login />}
       {loggedIn && <Chat />}
-
     </div>
   );
 }

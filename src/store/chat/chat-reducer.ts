@@ -60,6 +60,7 @@ export const chatReducer = (state: IChatReducer = initialState, action: IChatAct
                 ...state,
                 socket: undefined,
                 connected: false,
+                conversation: []
             }
         }
         default: {

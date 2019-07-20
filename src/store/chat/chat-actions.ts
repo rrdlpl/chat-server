@@ -77,8 +77,8 @@ export const sendCommand = (socket: SocketIOClient.Socket) => {
 export const complete = (socket: SocketIOClient.Socket) => {
     return (dispatch: Dispatch) => {
         if (socket) {
-            socket.disconnect()
             dispatch(sendDisconnectedMessage())
+            socket.disconnect()
         }
     }
 }
