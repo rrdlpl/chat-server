@@ -12,7 +12,7 @@ import { useChatState } from '../../../hooks/chat/useChatState';
 export const ChatConversation = () => {
     const { conversation } = useChatState()
     return (
-        <Grid container={true} style={{ padding: '1em' }}>
+        <Grid container={true} style={{ paddingRight: '1em', paddingLeft: '1em', paddingBottom: 50 }}>
             {conversation.map((c: any, index: number) =>
                 <Grid key={index} item={true} xs={12} >
                     {c.type === 'received' && <ReceivedMessage {...c} />}
