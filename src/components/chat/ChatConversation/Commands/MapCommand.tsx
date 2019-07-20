@@ -34,12 +34,9 @@ export const MapCommand = (props: IMapProps) => {
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attribution">CARTO</a> '
                             url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png' />
                         <Marker
-                            position={{ lat: location.lat, lng: location.lng }}
-                        >
-
+                            position={{ lat: location.lat, lng: location.lng }}>
                         </Marker>
                     </Map>
-
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => onClose()} color='primary'>
