@@ -4,28 +4,22 @@ import { initSocket } from '../../store/chat/chat-actions';
 import { ChatEnterText } from './ChatEnterText/ChatEnterText';
 import { ChatConversation } from './ChatConversation/ChatConversation';
 import { useChatState } from '../../hooks/useChatState';
+import { useEnterChat } from '../../hooks/useEnterChat';
 export interface IChatProps {
 }
 
+/**
+ * Component to render the Chat
+ */
 export const Chat: React.FC<IChatProps> = () => {
 
-    const dispatch = useDispatch()
-
-    const enterChat =
-        React.useCallback(
-            () =>
-                dispatch(initSocket()),
-            [dispatch],
-        )
+    const enterChat = useEnterChat()
 
     React.useEffect(() => {
         enterChat()
     }, [enterChat])
 
-
-
     const { connected } = useChatState()
-
     return (
         <div>
             Is chat connected? {connected ? "true" : "false"}
