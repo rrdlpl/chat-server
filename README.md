@@ -12,7 +12,7 @@ You can also run this App with Docker to do that you need to install:
 - Install [docker-compose](https://docs.docker.com/compose/install/)
 
 Then in the project folder Run:
-- `$docker-compose up` and the website
+- `$docker-compose up` and the website should be accessible through [http://localhost:3000](http://localhost:3000)
 
 ## Available Scripts
 
