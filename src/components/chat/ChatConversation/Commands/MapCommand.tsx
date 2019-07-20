@@ -2,7 +2,7 @@ import * as React from 'react'
 import { ILocation } from '../../../../entities/responses/CommandResponse';
 import { Typography, Dialog, DialogTitle, DialogActions, Button, DialogContent } from '@material-ui/core';
 
-import { Map, TileLayer } from 'react-leaflet'
+import { Map, TileLayer, Marker } from 'react-leaflet'
 interface IMapProps {
     location: ILocation;
 }
@@ -33,6 +33,11 @@ export const MapCommand = (props: IMapProps) => {
                         <TileLayer
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attribution">CARTO</a> '
                             url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png' />
+                        <Marker
+                            position={{ lat: location.lat, lng: location.lng }}
+                        >
+
+                        </Marker>
                     </Map>
 
                 </DialogContent>
