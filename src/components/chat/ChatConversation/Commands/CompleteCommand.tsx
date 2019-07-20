@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { useDispatch } from 'redux-react-hook';
 import { DialogTitle, Dialog, Button, DialogActions, Typography } from '@material-ui/core';
-import { sendMessage, complete } from '../../../../store/chat/actions';
-import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 import { useChatState } from '../../../../hooks/useChatState';
+import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
+import { useDispatchComplete } from '../../../../hooks/useDispatchComplete';
 interface ICompleteProps {
     options: string[];
 }
@@ -17,23 +16,8 @@ export const CompleteCommand = (props: ICompleteProps) => {
         setOpen(false)
     }
 
-    const dispatch = useDispatch()
-
-    const dispatchMessage: any =
-        React.useCallback(
-            (socket: SocketIOClient.Socket, message: IMessagePayload) =>
-                dispatch(sendMessage(socket, message)),
-            [dispatch],
-        )
-
-
-    const dispatchComplete: any =
-        React.useCallback(
-            (socket: SocketIOClient.Socket) =>
-                dispatch(complete(socket)),
-            [dispatch],
-        )
-
+    const dispatchMessage = useDispatchMessage()
+    const dispatchComplete = useDispatchComplete()
     const onComplete = () => {
         onClose()
         dispatchMessage(socket, { author: 'toset', message: yes })

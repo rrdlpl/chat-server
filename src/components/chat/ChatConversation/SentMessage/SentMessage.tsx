@@ -3,7 +3,6 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import CommandIcon from '@material-ui/icons/BugReport';
 import { blue } from '@material-ui/core/colors';
 
-
 const useSendStyles = makeStyles(() => ({
     send: {
         float: 'right',

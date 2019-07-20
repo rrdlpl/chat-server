@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { DialogTitle, DialogContent, Button, Dialog, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/StarBorderOutlined';
-import { useDispatch } from 'redux-react-hook';
-import { sendMessage } from '../../../../store/chat/actions';
-import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 import { useChatState } from '../../../../hooks/useChatState';
+import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
 
 
 interface IRateProps {
@@ -29,14 +27,7 @@ export const RateCommand = (props: IRateProps) => {
             </Button>
         )
     }
-    const dispatch = useDispatch()
-
-    const dispatchMessage: any =
-        React.useCallback(
-            (socket: SocketIOClient.Socket, message: IMessagePayload) =>
-                dispatch(sendMessage(socket, message)),
-            [dispatch],
-        )
+    const dispatchMessage = useDispatchMessage()
 
     const giveRating = (r: number) => {
         setRating(r)

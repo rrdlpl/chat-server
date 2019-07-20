@@ -6,8 +6,6 @@ import { cyan } from '@material-ui/core/colors';
 
 import { ShowCommand } from '../Commands/ShowCommand';
 
-
-
 const useReceiveStyles = makeStyles(() => ({
     recv: {
         float: 'left',

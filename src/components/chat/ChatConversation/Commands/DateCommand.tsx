@@ -1,11 +1,9 @@
 
 import * as React from 'react'
 import { Dialog, DialogTitle, DialogContent, Chip, Typography } from '@material-ui/core';
-import { sendMessage } from '../../../../store/chat/actions';
-import { useDispatch } from 'redux-react-hook';
-import { IMessagePayload } from '../../../../entities/request/MessagePayload';
 import moment from 'moment';
 import { useChatState } from '../../../../hooks/useChatState';
+import { useDispatchMessage } from '../../../../hooks/useDispatchMessage';
 
 interface IDateProps {
     date: string
@@ -30,16 +28,8 @@ export const DateCommand = (props: IDateProps) => {
     }, [date])
 
     const { socket } = useChatState()
+    const dispatchMessage = useDispatchMessage()
 
-
-    const dispatch = useDispatch()
-
-    const dispatchMessage: any =
-        React.useCallback(
-            (socket: SocketIOClient.Socket, message: IMessagePayload) =>
-                dispatch(sendMessage(socket, message)),
-            [dispatch],
-        )
 
     const onClose = () => {
         setOpen(false)
